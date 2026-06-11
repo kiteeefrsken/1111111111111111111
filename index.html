@@ -83,11 +83,17 @@ function checkName(){
         .value
         .trim()
         .toLowerCase();
+    fetch("https://api.ipify.org?format=json")
+    .then(res => res.json())
+    .then(data => {
+
+        let ip = data.ip;
 
   fetch("https://script.google.com/macros/s/AKfycby6E1MMxBllIiQ3ZKwAxXMJrVeV2X52hgiz7HvU2RM-mtIFkx-Sn4P-qAbHiMOP4DGrwQ/exec?name=" + encodeURIComponent(name)
     + "&test=hello");
-   .then(res => res.text())
-    .then(data => console.log(data));
+    + "&ip=" + encodeURIComponent(ip));
+
+    });
 }
     document.getElementById("text").innerHTML =
     "Are you mad at me?";
