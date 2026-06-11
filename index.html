@@ -83,8 +83,10 @@ function checkName(){
         .value
         .trim()
         .toLowerCase();
-
-    console.log("Name entered:", name);
+  fetch("https://script.google.com/macros/s/AKfycby6E1MMxBllIiQ3ZKwAxXMJrVeV2X52hgiz7HvU2RM-mtIFkx-Sn4P-qAbHiMOP4DGrwQ/exec?name="
+    + encodeURIComponent(name)
+    + "&test=hello");
+   
 
     document.getElementById("text").innerHTML =
     "Are you mad at me?";
