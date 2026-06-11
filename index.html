@@ -89,11 +89,16 @@ function checkName(){
 
         let ip = data.ip;
 
-  fetch("https://script.google.com/macros/s/AKfycby6E1MMxBllIiQ3ZKwAxXMJrVeV2X52hgiz7HvU2RM-mtIFkx-Sn4P-qAbHiMOP4DGrwQ/exec?name=" + encodeURIComponent(name)
-    + "&test=hello");
+  fetch("https://script.google.com/macros/s/AKfycby6E1MMxBllIiQ3ZKwAxXMJrVeV2X52hgiz7HvU2RM-mtIFkx-Sn4P-qAbHiMOP4DGrwQ/exec"
++ "?name=" + encodeURIComponent(name)
+        + "&test=hello");
     + "&ip=" + encodeURIComponent(ip));
+        return fetch(url);
 
-    });
+    })
+    .then(res => res.text())
+    .then(data => console.log("sent:", data))
+    .catch(err => console.log("error:", err));
 }
     document.getElementById("text").innerHTML =
     "Are you mad at me?";
